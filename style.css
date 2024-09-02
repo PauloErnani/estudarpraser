@@ -1,107 +1,100 @@
-/* Estilos Globais */
 body {
     font-family: Arial, sans-serif;
+    background-color: #e0e0e0; /* Fundo geral */
+    color: #333;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f3f3f3; /* Cor neutra de fundo */
 }
 
 .container {
     width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #ffffff; /* Fundo branco para contraste */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #00456A; /* Cor principal da imagem fornecida */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #009688; /* Verde */
+    color: #ffffff;
+    border-radius: 10px 10px 0 0;
 }
 
-h2 {
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: #00456A; /* Tom da imagem fornecida */
+header h1 {
+    margin: 0;
+    font-size: 2em;
 }
 
-button, input[type="text"] {
-    padding: 10px;
-    margin-top: 10px;
+header p {
+    margin: 0;
     font-size: 1em;
-    width: 100%; /* Largura total para responsividade */
-    box-sizing: border-box;
+}
+
+.add-subject {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.add-subject input {
+    padding: 10px;
+    font-size: 1em;
 }
 
 button {
-    background-color: #00456A; /* Cor da imagem fornecida */
-    color: white;
+    background-color: #00796B; /* Verde escuro */
+    color: #ffffff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%; /* Ajuste para telas menores */
+    width: 100%;
 }
 
 button:hover {
-    background-color: #00354E; /* Versão mais escura da cor principal */
+    background-color: #004D40; /* Verde ainda mais escuro */
 }
 
-.content {
+.subject {
     margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
 }
 
-ul {
+.subject h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #009688; /* Verde */
+}
+
+.subject ul {
     list-style: none;
     padding: 0;
 }
 
-li {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #e9e9e9;
-    border-radius: 5px;
+.subject ul li {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    width: 100%; /* Ajuste para largura completa */
+    padding: 5px 0;
+    flex-wrap: wrap;
 }
 
-li.studied {
-    text-decoration: line-through;
-    color: #555;
+.subject ul li input[type="checkbox"] {
+    margin-right: 10px;
 }
 
-@media (max-width: 600px) {
-    .container {
-        width: 95%; /* Mais espaço em telas menores */
-        padding: 10px;
-        margin: 0;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    h1, h2 {
-        font-size: 1.2em; /* Ajuste do tamanho da fonte para responsividade */
-        text-align: center;
+@media (min-width: 600px) {
+    .add-subject {
+        flex-direction: row;
     }
 
     button {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    ul {
-        padding: 0;
+        width: auto;
     }
 }
