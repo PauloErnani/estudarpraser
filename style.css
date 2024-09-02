@@ -1,4 +1,3 @@
-/* Estilos Básicos de Responsividade */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -19,7 +18,59 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para melhor adaptação em dispositivos menores */
+h1 {
+    color: #00456A; /* Tom da imagem fornecida */
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #00456A; /* Tom da imagem fornecida */
+}
+
+button, input[type="text"] {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #0081A7; /* Cor de destaque */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005F73; /* Cor ao passar o mouse */
+}
+
+.content {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+li.studied {
+    text-decoration: line-through;
+    color: #555;
+}
+
 @media (max-width: 600px) {
     .container {
         width: 100%;
@@ -47,20 +98,4 @@ body {
         width: 100%;
         margin-bottom: 10px;
     }
-}
-
-/* Melhorar a responsividade das listas */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #e9e9e9;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
