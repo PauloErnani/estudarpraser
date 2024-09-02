@@ -107,4 +107,59 @@ document.querySelector('#add-materia').addEventListener('click', function() {
     adicionarMateria();
     saveState();
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const materiaInput = document.getElementById('materia-input');
+    const conteudoInput = document.getElementById('conteudo-input');
+    const addButton = document.getElementById('add-button');
+    const listaMaterias = document.getElementById('materia-list');
+
+    // Carregar dados salvos do localStorage
+    carregarDados();
+
+    addButton.addEventListener('click', function() {
+        const materia = materiaInput.value.trim();
+        const conteudo = conteudoInput.value.trim();
+        
+        if (materia && conteudo) {
+            adicionarConteudo(materia, conteudo);
+            materiaInput.value = '';
+            conteudoInput.value = '';
+        }
+    });
+
+    function adicionarConteudo(materia, conteudo, jaEstudado = false) {
+        const li = document.createElement('li');
+        li.textContent = `${materia}: ${conteudo}`;
+        if (jaEstudado) {
+            li.classList.add('studied');
+        }
+        li.addEventListener('click', function() {
+            li.classList.toggle('studied');
+            salvarDados();
+        });
+        listaMaterias.appendChild(li);
+        salvarDados();
+    }
+
+    function salvarDados() {
+        const materias = [];
+        listaMaterias.querySelectorAll('li').forEach(function(li) {
+            materias.push({
+                texto: li.textContent,
+                estudado: li.classList.contains('studied')
+            });
+        });
+        localStorage.setItem('materias', JSON.stringify(materias));
+    }
+
+    function carregarDados() {
+        const materias = JSON.parse(localStorage.getItem('materias'));
+        if (materias) {
+            materias.forEach(function(item) {
+                adicionarConteudo(item.texto.split(': ')[0], item.texto.split(': ')[1], item.estudado);
+            });
+        }
+    }
+});
+
 
