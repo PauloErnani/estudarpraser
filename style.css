@@ -1,3 +1,4 @@
+/* Estilos Globais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #f3f3f3; /* Cor neutra de fundo */
 }
 
 .container {
@@ -14,12 +16,12 @@ body {
     margin: 20px auto;
     padding: 10px;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #ffffff; /* Fundo branco para contraste */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #00456A; /* Tom da imagem fornecida */
+    color: #00456A; /* Cor principal da imagem fornecida */
 }
 
 h2 {
@@ -32,18 +34,21 @@ button, input[type="text"] {
     padding: 10px;
     margin-top: 10px;
     font-size: 1em;
+    width: 100%; /* Largura total para responsividade */
+    box-sizing: border-box;
 }
 
 button {
-    background-color: #0081A7; /* Cor de destaque */
+    background-color: #00456A; /* Cor da imagem fornecida */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%; /* Ajuste para telas menores */
 }
 
 button:hover {
-    background-color: #005F73; /* Cor ao passar o mouse */
+    background-color: #00354E; /* Versão mais escura da cor principal */
 }
 
 .content {
@@ -64,6 +69,7 @@ li {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    width: 100%; /* Ajuste para largura completa */
 }
 
 li.studied {
@@ -73,19 +79,15 @@ li.studied {
 
 @media (max-width: 600px) {
     .container {
-        width: 100%;
+        width: 95%; /* Mais espaço em telas menores */
         padding: 10px;
         margin: 0;
         box-shadow: none;
         border-radius: 0;
     }
 
-    .content {
-        padding: 10px;
-    }
-
     h1, h2 {
-        font-size: 1.5em;
+        font-size: 1.2em; /* Ajuste do tamanho da fonte para responsividade */
         text-align: center;
     }
 
@@ -97,5 +99,9 @@ li.studied {
     input[type="text"] {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    ul {
+        padding: 0;
     }
 }
