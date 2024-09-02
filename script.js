@@ -58,3 +58,53 @@ document.addEventListener('DOMContentLoaded', () => {
         contentList.appendChild(li);
     }
 });
+// Função para salvar o estado atual dos estudos
+function saveState() {
+    const materias = [];
+    document.querySelectorAll('.content').forEach((content) => {
+        const materia = content.querySelector('h2').textContent;
+        const conteudos = [];
+        content.querySelectorAll('li').forEach((li) => {
+            conteudos.push({
+                texto: li.querySelector('span').textContent,
+                estudado: li.classList.contains('studied')
+            });
+        });
+        materias.push({ materia, conteudos });
+    });
+    localStorage.setItem('estadoEstudos', JSON.stringify(materias));
+}
+
+// Função para carregar o estado salvo
+function loadState() {
+    const estadoSalvo = localStorage.getItem('estadoEstudos');
+    if (estadoSalvo) {
+        const materias = JSON.parse(estadoSalvo);
+        materias.forEach((materia) => {
+            adicionarMateria(materia.materia);
+            const ul = document.querySelector('.content:last-of-type ul');
+            materia.conteudos.forEach((conteudo) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${conteudo.texto}</span> <button onclick="removerConteudo(this)">Remover</button>`;
+                if (conteudo.estudado) {
+                    li.classList.add('studied');
+                }
+                li.onclick = function() {
+                    this.classList.toggle('studied');
+                    saveState();
+                };
+                ul.appendChild(li);
+            });
+        });
+    }
+}
+
+// Carregar o estado ao iniciar
+window.onload = loadState;
+
+// Adicione o saveState em ações que mudam o estado
+document.querySelector('#add-materia').addEventListener('click', function() {
+    adicionarMateria();
+    saveState();
+});
+
